@@ -1,5 +1,92 @@
 @import "bootstrap";
 
+@mixin box_shading {
+background-image: -moz-linear-gradient(center top , #B8E6B8, #C6EBC6);
+}
+
+@mixin background_image {
+    background-image: url('background2.gif'); /* fallback */
+    background-image: url('background2.gif'), -webkit-gradient(linear, left top, left bottom, from(#444444), to(#999999)); /* Saf4+, Chrome */
+    background-image: url('background2.gif'), -webkit-linear-gradient(top, #444444, #999999); /* Chrome 10+, Saf5.1+ */
+    background-image: url('background2.gif'),  -moz-linear-gradient(top, #444444, #999999); /* FF3.6+ */
+    background-image: url('background2.gif'),     -ms-linear-gradient(top, #444444, #999999); /* IE10 */
+    background-image: url('background2.gif'),      -o-linear-gradient(top, #444444, #999999); /* Opera 11.10+ */
+    background-image: url('background2.gif'),         linear-gradient(top, #444444, #999999); /* W3C */
+}
+
+html{
+    min-height: 100%;
+}
+
 body {
-color: #5C5C5C
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    background-position: bottom;
+    @include background-image;
+}
+
+.navbar-inner{
+    @include box_shading;
+}
+
+header {
+    .topline{  
+        color: #000000;
+        float: right;
+        font-weight: bold;
+        margin-left: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
+        transition: all 0.2s linear 0s;
+        line-height:  1;
+        display: block;
+        padding-top:20px;
+    }
+
+    h1 {
+        line-height: 100px;
+        border-radius: 6px 6px 0 0;
+        text-align: center;
+    }
+
+    .navigation-bar{
+        .navbar-inner{
+            border-radius: 0 0 4px 4px;
+        }
+    }
+
+    .navbar .nav .active > a, .navbar .nav .active > a:hover {
+        background-color: #D8F3D8;
+        color: #B8E6B8;
+        text-decoration: none;
+    }
+    .navbar {
+        .divider-vertical {
+            background-color: #D8F3D8;
+            border-right: 2px solid #D8F3D8;
+        }
+        .nav > li > a{
+            color: #3C963C;
+        }
+    }
+}
+
+
+/*FOOTER*/ 
+.footer {
+    .navbar{
+        width:940px;
+    }
+    .nav {
+        float:right;
+    }
+    .navbar .nav > li > a {
+        color:black
+    }
+    .bottomline > a{
+        position: relative;
+        right: 400px;
+        display: block;
+    }
 }

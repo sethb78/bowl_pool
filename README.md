@@ -19,4 +19,9 @@ II.  Static Pages
 		3.  Updated StaticPages to provide titles
 		4.  Created spec/support/utilities.rb with full_title method for tests
 
-	
+III.  Layout
+	A.  Created custom.css.scss and imported bootstrap
+	B.  Updated layout to include shim, header, and footer partials
+	C.  Created shim partial
+	E.  Created header partial
+	F.  Created footer partial
