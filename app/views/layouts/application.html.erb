@@ -9,11 +9,13 @@
 	</head>
 	<body>
 		<div class="container">
-			<%= render 'layouts/header' %>
-			<div class="container">
-				<%= yield %>
+			<div class="opacity">
+				<%= render 'layouts/header' %>
+				<div class="container main-info">
+					<%= yield %>
+				</div>
+				<%= render 'layouts/footer' %>
 			</div>
-			<%= render 'layouts/footer' %>
 		</div>
 	</body>
 </html>

@@ -25,3 +25,15 @@ III.  Layout
 	C.  Created shim partial
 	E.  Created header partial
 	F.  Created footer partial
+
+IV.  Users Controller
+	A.  Created users-controller branch
+	B.  Generated Users controller
+	C.  Generated integration_test
+		1. Tested for Signup Page title/h1
+			a.  Created signup route
+			b.  Updates users/new
+	D.  Updated routes.rb to include users resource
+	E.  Updated home page to include signup link
+	F.  Tested that links route to correct page
+

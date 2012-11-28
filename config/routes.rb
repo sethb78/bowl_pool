@@ -1,8 +1,11 @@
 BowlPool::Application.routes.draw do
+  resources :users
+
     root to: 'static_pages#home'
 
     match '/rules',         to: 'static_pages#rules'
     match '/contact',       to: 'static_pages#contact'
+    match '/signup',        to: 'users#new'
 
 
 

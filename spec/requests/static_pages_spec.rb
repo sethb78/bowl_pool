@@ -31,5 +31,24 @@ describe "StaticPages" do
 		let (:heading) { 'Rules' }
 		let(:page_title) { 'Rules' }
 	end
+
+	describe "Layout has the correct links" do
+		before { visit root_path }
+		before do
+			 click_link 'Rules' 
+			it { should have_selector('title', text: full_title('Rules')) }
+		end
+
+		before do
+			click_link 'Contact'
+			it  should have_selector('title', text: full_title('Contact')) 
+		end
+
+		before do
+			click_link 'Game Home'
+			click_link 'Sign up now!'
+			it  should have_selector('title', text: full_title('Sign up')) 
+		end
+	end
 end
 		

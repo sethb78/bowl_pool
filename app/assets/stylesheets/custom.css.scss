@@ -19,11 +19,23 @@ html{
 }
 
 body {
-    background-repeat: no-repeat;
+    background-image: url('background2.gif'),-moz-linear-gradient( bottom, rgb(45,87,18) 4%, rgb(22,97,1) 20%, rgb(215,230,209) 80%);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100% 25%,  cover;
+    background-position: bottom, top;
+       /*  background-repeat: no-repeat;
     background-size: 100% 50%;
     background-position: bottom;
-    @include background-image;
+   @include background-image;*/
 }
+
+.opacity{
+    background-color:#ffffff;
+    min-height: 400px;
+    opacity:0.8;
+    color: black;
+}
+
 
 .navbar-inner{
     @include box_shading;
@@ -47,7 +59,7 @@ header {
     h1 {
         line-height: 100px;
         border-radius: 6px 6px 0 0;
-        text-align: center;
+        text-align: center;color:black;
     }
 
     .navigation-bar{
@@ -73,11 +85,19 @@ header {
 }
 
 
+.hero-unit {
+    background: inherit;
+}
+
+.main-info {
+    min-height: 200px;
+}
+
 /*FOOTER*/ 
-.footer {
+.footer{
     .navbar{
         width:940px;
-    }
+   }
     .nav {
         float:right;
     }
