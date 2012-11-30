@@ -1,9 +1,13 @@
-
+<!DOCTYPE html>
+<html>
+<head>
 <style>
 blockquote{
 	color:black;
 }
 </style>
+</head>
+</html>
 My attempt at creating my own website for the College Bowl Pool.
 
 I. Setup
