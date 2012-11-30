@@ -23,7 +23,7 @@ III.  Layout
 	A.  Created custom.css.scss and imported bootstrap
 	B.  Updated layout to include shim, header, and footer partials
 	C.  Created shim partial<br>
-	E.  Created header partial
+	<div>>E.         Created header partial</div>
 	F.  Created footer partial
 
 IV.  Users Controller
