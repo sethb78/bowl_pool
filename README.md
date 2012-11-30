@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 <html>
 <head>
 <style>
-blockquote{
+.text_blockquote{
 	color:black;
 }
 </style>
@@ -30,7 +29,7 @@ II.  Static Pages
 		4.  Created spec/support/utilities.rb with full_title method for tests
 
 III.  Layout
-<blockquote>
+<blockquote class="text_blockquote">
 <br>	A.  Created custom.css.scss and imported bootstrap
 <br>	B.  Updated layout to include shim, header, and footer partials
 <br>	C.  Created shim partial
