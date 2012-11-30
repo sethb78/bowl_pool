@@ -20,12 +20,13 @@ II.  Static Pages
 		4.  Created spec/support/utilities.rb with full_title method for tests
 
 III.  Layout
-	A.  Created custom.css.scss and imported bootstrap
-	B.  Updated layout to include shim, header, and footer partials
-	C.  Created shim partial<br>
-	<div>>E.         Created header partial</div>
-	F.  Created footer partial
-
+<blockquote>
+<br>	A.  Created custom.css.scss and imported bootstrap
+<br>	B.  Updated layout to include shim, header, and footer partials
+<br>	C.  Created shim partial
+<br>	E.  Created header partial
+<br>	F.  Created footer partial
+</blockquote>
 IV.  Users Controller
 	A.  Created users-controller branch
 	B.  Generated Users controller
