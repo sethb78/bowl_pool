@@ -2,7 +2,7 @@ require 'spec_helper'
 	
 describe User do
 
-	before { @user  =  User.new(first_name: "Example", last_name: "User",email: "user@example.com", twitter: "twitter_example", address1: "abc 1st St", address2: "apt. 1", city: "Matawan", state: "nj", zip: "12345", password: "foobar", password_confirmation: "foobar") }
+	before { @user  =  User.new(first_name: "Example", middle_initial: "B.",last_name: "User",email: "user@example.com", email_confirmation: "user@example.com", twitter: "twitter_example", address1: "abc 1st St", address2: "apt. 1", city: "Matawan", country: "United States",state: "nj", zip: "12345", password: "foobar", password_confirmation: "foobar") }
 
 	subject { @user }
 	it { should respond_to(:first_name) }
@@ -18,7 +18,9 @@ describe User do
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:authenticate) }
-
+	it { should respond_to(:middle_initial) }
+	it { should respond_to(:country) }
+	it { should respond_to(:email_confirmation) }
 	it { should be_valid }
 
 	describe "Name Validations" do
@@ -65,8 +67,14 @@ describe User do
 	    		before do
 	    			dup_user_email = @user.dup
 	    			dup_user_email.email = @user.email.upcase
+	    			dup_user_email.email_confirmation = @user.email_confirmation.upcase
 	    			dup_user_email.save
 	    		end
+	    		it { should_not be_valid }
+	    	end
+
+	    	describe "Email and Confirmation mismatch" do
+	    		before { @user.email_confirmation = "mismatch@abc.com" }
 	    		it { should_not be_valid }
 	    	end
 	    end
@@ -75,7 +83,7 @@ describe User do
 	    	it "should be valid" do
 	    		addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
 	    		addresses.each do |valid_address|
-	    			@user.email = valid_address
+	    			@user.email = @user.email_confirmation = valid_address
 	    			@user.should be_valid
 	    		end
 	    	end

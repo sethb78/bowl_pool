@@ -1,0 +1,41 @@
+      <%= render 'shared/error_messages', object: f.object %>
+
+<div id="firstname">
+<%= f.label :first_name, "First Name*" %>
+<%= f.text_field :first_name %>
+</div>
+
+<div id="lastname">
+<%= f.label :last_name, "Last Name*" %>
+<%= f.text_field :last_name %>
+</div>
+
+<%= f.label :address1, "Address 1" %>
+<%= f.text_field :address1 %>
+
+<%= f.label :address2, "Address 2" %>
+<%= f.text_field :address2 %>
+<div id="city">
+<%= f.label :city, "City*" %>
+<%= f.text_field :city %>
+</div>
+
+<div id="state">
+<%= f.label :state, "State*" %>
+<%= select_tag :state, options_for_select(us_states) %> 
+</div>
+<%= f.label :zip, "Zip Code" %>
+<%= f.text_field :zip %>
+
+<div class="email">
+<%= f.label :email, "Email Address" %>
+<%= f.text_field :email %>
+</div>
+<%= f.label :password %>
+<%= f.password_field :password %>
+
+<%= f.label :password_confirmation, "Confirm Password*" %>
+<%= f.password_field :password_confirmation %>
+
+
+

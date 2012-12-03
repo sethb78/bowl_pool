@@ -4,7 +4,8 @@ I. Setup
 	A.  Create Rails app
 	B.  Copied Gemfile from previous app.
 	C.  Added Rspec, Guard, and Spork
-	D.  Created Repository on Github and pushed
+	D.  Updated test confgig to speed up tests by lowering Brcypt's cost function
+	E.  Created Repository on Github and pushed
 
 II.  Static Pages
 	A.  Created StaticPages Controller with home,contact, and rules actions
@@ -72,6 +73,20 @@ V.  Users Model
 				iv.  password length
 			H.  Added password/password_confirmation to  attr_accessible in user model
 			I.  added has_secure_password method
+
+VI. Sign Up
+	A.  Created profile page(show)
+	B.  Created a factory to simulate User model
+	D.  Tested User Show page
+	E.  Added gravatar on profile page
+		1.  Added gravatar_for helper method (app/helpers/users_helper)
+	F.  Signup Form
+		1.  Tested Signup form for invalid information to not change User count and for valid information to change User count by 1
+			a.  Added middle_initial and country to User model
+				1.  Tested respond_to for MI and
+				2.  Tested for email and email_confirmation not matching
+			b.  Updated Signup page with form  
+		
 
 
 

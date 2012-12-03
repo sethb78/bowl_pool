@@ -3,7 +3,11 @@
 @mixin box_shading {
 background-image: -moz-linear-gradient(center top , #B8E6B8, #C6EBC6);
 }
-
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
 @mixin background_image {
     background-image: url('background2.gif'); /* fallback */
     background-image: url('background2.gif'), -webkit-gradient(linear, left top, left bottom, from(#444444), to(#999999)); /* Saf4+, Chrome */
@@ -108,5 +112,82 @@ header {
         position: relative;
         right: 400px;
         display: block;
+    }
+}
+
+/* sidebar */
+
+aside {
+  section {
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+/*SIGNUP PAGE*/
+.signup{
+    h1{text-align:center}
+
+    input, textarea, select, .uneditable-input {
+      border: 1px solid #bbb;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      @include box_sizing;
+      padding:2px;
+    }
+
+    input {
+      height: auto !important;
+    }
+
+  #firstname{
+    clear: both;
+    width: 40%;
+    float: left;
+    margin-right:5%
+    }
+   #lastname{
+    width:40%;
+    float:left;
+}
+.email{
+    clear:both;
+}
+
+#city{
+    clear:both
+    40%;
+    float:left;
+    margin-right: 5%;
+    }
+
+    #state{
+      padding-right: 0;
+        width:30%;
+        float:left;
+        margin-right:5%;
+        height: auto !important;
     }
 }
