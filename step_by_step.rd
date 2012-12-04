@@ -85,7 +85,9 @@ VI. Sign Up
 			a.  Added middle_initial and country to User model
 				1.  Tested respond_to for MI and
 				2.  Tested for email and email_confirmation not matching
-			b.  Updated Signup page with form  
+			b.  Updated Signup page with form
+				1.  Updated CSS page to format form
+			 
 		
 
 

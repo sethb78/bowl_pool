@@ -9,29 +9,23 @@ background-image: -moz-linear-gradient(center top , #B8E6B8, #C6EBC6);
   box-sizing: border-box;
 }
 @mixin background_image {
-    background-image: url('background2.gif'); /* fallback */
-    background-image: url('background2.gif'), -webkit-gradient(linear, left top, left bottom, from(#444444), to(#999999)); /* Saf4+, Chrome */
-    background-image: url('background2.gif'), -webkit-linear-gradient(top, #444444, #999999); /* Chrome 10+, Saf5.1+ */
-    background-image: url('background2.gif'),  -moz-linear-gradient(top, #444444, #999999); /* FF3.6+ */
-    background-image: url('background2.gif'),     -ms-linear-gradient(top, #444444, #999999); /* IE10 */
-    background-image: url('background2.gif'),      -o-linear-gradient(top, #444444, #999999); /* Opera 11.10+ */
-    background-image: url('background2.gif'),         linear-gradient(top, #444444, #999999); /* W3C */
-}
+  background-image: linear-gradient( bottom, rgb(186,188,196) 0%, rgb(240,250,242) 100%);
+  background-image: -o-linear-gradient( bottom, rgb(186,188,196) 0%, rgb(240,250,242) 100%);
+  background-image: -moz-linear-gradient( bottom, rgb(186,188,196) 0%, rgb(240,250,242) 100%);
+  background-image: -webkit-linear-gradient( bottom, rgb(186,188,196) 0%, rgb(240,250,242) 100%);
+  background-image: -ms-linear-gradient( bottom, rgb(186,188,196) 0%, rgb(240,250,242) 100%);
+
+  background-image: -webkit-gradient( linear, bottom, left top, color-stop(0, rgb(186,188,196)), color-stop(1, rgb(240,250,242))
+);}
 
 html{
     min-height: 100%;
 }
 
 body {
-    background-image: url('background2.gif'),-moz-linear-gradient( bottom, rgb(45,87,18) 4%, rgb(22,97,1) 20%, rgb(215,230,209) 80%);
-    background-repeat: no-repeat, no-repeat;
-    background-size: 100% 25%,  cover;
-    background-position: bottom, top;
-       /*  background-repeat: no-repeat;
-    background-size: 100% 50%;
-    background-position: bottom;
-   @include background-image;*/
-}
+  @include background-image;
+  background-size: cover;
+  }
 
 .opacity{
     background-color:#ffffff;
@@ -155,20 +149,27 @@ aside {
       padding: 10px;
       margin-bottom: 15px;
       @include box_sizing;
-      padding:2px;
+      padding:1px;
     }
 
     input {
-      height: auto !important;
+      height: 22px !important;
     }
 
-  #firstname{
+  #first-name{
     clear: both;
     width: 40%;
     float: left;
     margin-right:5%
-    }
-   #lastname{
+  }
+
+  #middle-initial{
+    width: 10%;
+    float: left;
+    margin-right: 5%;
+
+  }
+   #last-name{
     width:40%;
     float:left;
 }
@@ -176,18 +177,65 @@ aside {
     clear:both;
 }
 
-#city{
-    clear:both
-    40%;
-    float:left;
+  #city{
+    clear: both;
+    width: 40%;
+    float: left;
     margin-right: 5%;
+  }
+
+  #country-choice{
+    float: left;
+    width: 20%;
+    margin-right: 5%;
+    height: auto !important;
+    #country{
+      height: auto !important;
+    }
+  }
+
+    #state-choice{
+      padding-right: 0;
+      width: 25%;
+      float: left;
+      margin-right: 5%;
+      height: 22px !important;
+      #state{
+        font-size: 13px;
+        height: 22px;
+        line-height: 22px;
+        border-radius: 3px 3px 3px 3px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+      }
     }
 
-    #state{
-      padding-right: 0;
-        width:30%;
-        float:left;
-        margin-right:5%;
-        height: auto !important;
+    #zip{
+      float: left;
+      width: 25%;
+    }
+
+    #email{
+      clear:both;
+      float: left;
+      width: 45%;
+      margin-right: 5%;
+    }
+
+    #twitter{
+      float: right;
+      width: 45%;
+    }
+
+    #password{
+      clear:both;
+      float: left;
+      width: 45%;
+      margin-right: 5%;
+    }
+
+    #password-confirmation{
+      float: right;
+      width: 45%;
     }
 }
