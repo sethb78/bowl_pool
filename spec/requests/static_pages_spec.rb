@@ -12,7 +12,7 @@ describe "StaticPages" do
 
 	describe "Home Page" do
 		before { visit root_path }
-		let(:heading) { 'Seth B.\'s 9th Annual Bowl Extravaganza' }
+		let(:heading) { 'Sports & Entertainmnet Pools and Fantasy Leagues' }
 		let (:page_title) { '' }
 
 		it_should_behave_like "all static pages"

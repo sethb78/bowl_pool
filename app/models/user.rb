@@ -33,6 +33,6 @@ class User < ActiveRecord::Base
   	validates :city, presence: true
   	validates :state, presence: true
   	validates :zip, presence: true
-  	validates :password, presence: true, length: { minimum: 6 }
+  	validates :password, length: { minimum: 6 }
   	validates :password_confirmation, presence: true
 end

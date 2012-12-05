@@ -21,21 +21,30 @@ subject { page }
 
 			describe "with valid information" do
 				before do
-					fill_in "First Name", 			with: "Example"
-					fill_in "Middle Initial",		with:  "B."
-					fill_in "Last Name",			with: "User"
-					fill_in "Address 1",			with: "123 Main St."
-					fill_in "Address 2",			with: "Apt. 1"
-					fill_in "City", 				with: "Anytown"
-					fill_in "Country",				with:  "United States"
-					fill_in "State",				with: "NJ"
-					fill_in "Zip Code", 			with: "12345"
-					fill_in "email", 				with: "example_user@bowl.com"
-					fill_in "email",				with: "example_user@bowl.com"
-					fill_in "twitter name",			with: "exampleuser23"
+					fill_in "First Name", 				with: "Example"
+					fill_in "M.I.",						with:  "B."
+					fill_in "Last Name",				with: "User"
+					fill_in "Street Address",			with: "123 Main St."
+					fill_in "Apt/Suite/Floor",			with: "Apt. 1"
+					fill_in "City", 					with: "Anytown"
+					select "New Jersey", 				from: "State/Province"
+					fill_in "Zip/Postal Code", 			with: "12345"
+					fill_in "Email Address", 			with: "example_user@bowl.com"
+					fill_in "Email Confirmation",		with: "example_user@bowl.com"
+					fill_in "Password", 				with: "foobar"
+					fill_in "Confirm Password", 		with: "foobar"
 				end
-				it "should create a user" do
+				it "should create an Amercian user" do
 					expect {click_button(submit) }.to change(User, :count).by(1)
+					expect { @user.country.should == 'US' }
+				end
+
+				describe "Canadian User" do
+					before { select "Ontario", from: "State/Province" }
+					it "should create a Canadian user" do
+						expect {click_button(submit) }.to change(User, :count).by(1)
+						expect { @user.country.should == 'CA' }
+					end
 				end
 			end
 		end

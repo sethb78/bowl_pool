@@ -87,7 +87,9 @@ VI. Sign Up
 				2.  Tested for email and email_confirmation not matching
 			b.  Updated Signup page with form
 				1.  Updated CSS page to format form
-			 
+			c.  Added create action in Users Controller
+		2.  Added error_messages partial to form
+		3.  Removed the password presence validation in User model and updated config/locales/en.yml
 		
 
 

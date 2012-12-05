@@ -2,7 +2,7 @@ require 'spec_helper'
 	
 describe User do
 
-	before { @user  =  User.new(first_name: "Example", middle_initial: "B.",last_name: "User",email: "user@example.com", email_confirmation: "user@example.com", twitter: "twitter_example", address1: "abc 1st St", address2: "apt. 1", city: "Matawan", country: "United States",state: "nj", zip: "12345", password: "foobar", password_confirmation: "foobar") }
+	before { @user  =  User.new(first_name: "Example", middle_initial: "B.",last_name: "User",email: "user@example.com", email_confirmation: "user@example.com", twitter: "twitter_example", address1: "abc 1st St", address2: "apt. 1", city: "Matawan", state: "nj", zip: "12345", password: "foobar", password_confirmation: "foobar") }
 
 	subject { @user }
 	it { should respond_to(:first_name) }

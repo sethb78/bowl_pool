@@ -30,7 +30,7 @@
 
 <div id="state-choice">
 	<%= f.label :state, "State/Province*" %>
-	<%= select_tag :state, unsorted_grouped_options_for_select(us_states, nil, "---") %> 
+	<%= f.select :state, unsorted_grouped_options_for_select(us_states, nil, "---") %> 
 </div>
 
 <div id="zip">
@@ -43,9 +43,9 @@
 	<%= f.text_field :email %>
 </div>
 
-<div id="twitter">
-	<%= f.label :twitter, "Twitter Name" %>
-	<%= f.text_field :twitter %>
+<div id="email-confirmation">
+	<%= f.label :email_confirmation, "Email Confirmation" %>
+	<%= f.text_field :email_confirmation %>
 </div>
 
 <div id="password">
