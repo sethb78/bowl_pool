@@ -3,6 +3,8 @@ require 'spec_helper'
 describe "UserPages" do
 
 subject { page }
+let(:user) { FactoryGirl.create(:user) }
+
 
 	describe "Sign Up Page" do
 		before { visit signup_path }
@@ -35,18 +37,28 @@ subject { page }
 					fill_in "Confirm Password", 		with: "foobar"
 				end
 				it "should create an Amercian user" do
-					expect {click_button(submit) }.to change(User, :count).by(1)
+					expect {click_button( submit) }.to change(User, :count).by(1)
 					expect { @user.country.should == 'US' }
 				end
 
 				describe "Canadian User" do
 					before { select "Ontario", from: "State/Province" }
 					it "should create a Canadian user" do
-						expect {click_button(submit) }.to change(User, :count).by(1)
+						expect { click_button(submit) }.to change(User, :count).by(1)
 						expect { @user.country.should == 'CA' }
 					end
 				end
-			end
+
+				describe "After Saving The User" do
+					before { click_button(submit) }
+					it { should have_link('Sign Out') }
+
+					describe "Then Signing Out" do
+						before { click_link "Sign Out" }
+	    				it { should have_link('Sign in') }
+      				end
+				end
+	   		end
 		end
 	end
 

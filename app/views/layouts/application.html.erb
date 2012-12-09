@@ -12,6 +12,9 @@
 			<div class="opacity">
 				<%= render 'layouts/header' %>
 				<div class="container main-info">
+					<% flash.each do |key, value| %>
+        			<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        			<% end %>
 					<%= yield %>
 				</div>
 				<%= render 'layouts/footer' %>

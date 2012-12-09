@@ -1,7 +1,13 @@
 @import "bootstrap";
 
-@mixin box_shading {
-background-image: -moz-linear-gradient(center top , #B8E6B8, #C6EBC6);
+@mixin box_shading($bottom_color,$top_color) {
+  background-image: linear-gradient(center top , $bottom_color,$top_color);
+  background-image: -o-linear-gradient(center top , $bottom_color,$top_color);
+  background-image: -moz-linear-gradient(center top , $bottom_color,$top_color);
+  background-image: -webkit-linear-gradient(center top , $bottom_color,$top_color);
+  background-image: -ms-linear-gradient(center top , $bottom_color,$top_color);
+
+  background-image: -webkit-gradient(center top , $bottom_color,$top_color);
 }
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
@@ -26,6 +32,18 @@ body {
   @include background-image;
   background-size: cover;
   }
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
 
 .opacity{
     background-color:#ffffff;
@@ -36,22 +54,22 @@ body {
 
 
 .navbar-inner{
-    @include box_shading;
+    @include box_shading($bottom_color: #5C5CFF, $top_color: #3333FF)
+ 
 }
 
 header {
     .topline{  
         color: #000000;
+        font-size: 18px;
         float: right;
         font-weight: bold;
         margin-left: 20px;
-        padding-left: 0;
-        padding-right: 0;
         text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
         transition: all 0.2s linear 0s;
         line-height:  1;
         display: block;
-        padding-top:20px;
+        padding: 20px 0 0;
     }
 
     h1 {
@@ -152,6 +170,7 @@ aside {
       margin-bottom: 15px;
       @include box_sizing;
       padding:1px;
+      color:black;
     }
 
     input {

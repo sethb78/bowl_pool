@@ -19,20 +19,27 @@
 class User < ActiveRecord::Base
 
 	before_save { |user| user.email = email.downcase }
-  	attr_accessible :address1, :address2, :city, :email, :first_name, :last_name, :state, :twitter, :zip, :password, :password_confirmation, :middle_initial, :country, :email_confirmation
+  attr_accessible :address1, :address2, :city, :email, :first_name, :last_name, :state, :twitter, :zip, :password, :password_confirmation, :middle_initial, :country, :email_confirmation
 
-  	has_secure_password
+ 	has_secure_password
+  before_save(:create_remember_token)
 
-  	validates :first_name, presence: true, length: { maximum: 25 }
- 	validates :last_name, presence: true, length: { maximum: 25 }
+ 	validates :first_name, presence: true, length: { maximum: 25 }
+  validates :last_name, presence: true, length: { maximum: 25 }
       VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
- 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-  	validates :email, confirmation: true
-    validates :email_confirmation, presence: true
-    validates :address1, presence: true
-  	validates :city, presence: true
-  	validates :state, presence: true
-  	validates :zip, presence: true
-  	validates :password, length: { minimum: 6 }
-  	validates :password_confirmation, presence: true
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validates :email, confirmation: true
+  validates :email_confirmation, presence: true
+  validates :address1, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :zip, presence: true
+  validates :password, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
+
+
+  private
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end

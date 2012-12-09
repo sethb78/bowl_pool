@@ -91,6 +91,30 @@ VI. Sign Up
 		2.  Added error_messages partial to form
 		3.  Removed the password presence validation in User model and updated config/locales/en.yml
 		
+VI. Sign In/Sign Out
+	A.  Generated Sessions controller
+	B.  Generated Authentication integration test
+	c.  Tested Signin page (title/hl contain Sign In)
+		a.  Created sessions resource(new,create,destroy)
+	D.  Tested that ivalid signin has Invalid error message
+		a.  Updated create action to flash error message and redirect to signin if signin info is missing/invalid
+	E.  Tested that valid signin brings user to profile page
+		a.  Updated create action to sign in the user and redirect to profile page
+		b.  updated application_controller.rb to include SessionsHelper
+		c.  added remember token to User model(with index)
+			1.  Tested that remember token is not blank.
+				i.  Created create_remember_token method in User model
+		d.  added sign_in(user) function to sessions_helper.rb
+		e. Forced the use of SSL in production(config/evironments/production)
+		f. added current_user=(user) to sessions_helper which sests @current_user
+		g.  added current_user to sessions_helper which  calls the find_by_remember_token method the first time Current_user is called, but returns @current_user on subsequent invocations
+		h.  added signed_in? method to sessions helper to check if a user is signed in
+		i.  updated header to check if user is signed in and display proper heading
+		j. updated javascript application file to include Bootstrap's JavaScript library
+		k.  tested that when a user signs up they are signed in automatically
+			1.  added sign_in method to Create action in Users controller
+		l.  tested for signing out user
+			1.  added destroy action to Sessions controller
 
 
 
