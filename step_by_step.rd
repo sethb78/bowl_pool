@@ -115,6 +115,7 @@ VI. Sign In/Sign Out
 			1.  added sign_in method to Create action in Users controller
 		l.  tested for signing out user
 			1.  added destroy action to Sessions controller
+	F.  added signin fields to application header
 
 
 

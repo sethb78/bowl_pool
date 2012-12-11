@@ -9,17 +9,16 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="opacity">
-				<%= render 'layouts/header' %>
-				<div class="container main-info">
-					<% flash.each do |key, value| %>
-        			<%= content_tag(:div, value, class: "alert alert-#{key}") %>
-        			<% end %>
-					<%= yield %>
-				</div>
-				<%= render 'layouts/footer' %>
-			  	<%= debug(params) if Rails.env.development? %>
+			<%= render 'layouts/header' %>
+			<%= render 'layouts/title' %>
+			<%= render 'layouts/navigation-bar' %>
+			<div class="main-info">
+				<% flash.each do |key, value| %>
+        		<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        		<% end %>
+				<%= yield %>
 			</div>
+			<%= render 'layouts/footer' %>
 		</div>
 	</body>
 </html>

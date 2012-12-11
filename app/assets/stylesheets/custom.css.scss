@@ -1,132 +1,115 @@
 @import "bootstrap";
 
+/*VARIABLES*/
+$navbar-background-color: #2C2C2C;
+$navbar-font-color: white;
+
 @mixin box_shading($bottom_color,$top_color) {
   background-image: linear-gradient(center top , $bottom_color,$top_color);
   background-image: -o-linear-gradient(center top , $bottom_color,$top_color);
   background-image: -moz-linear-gradient(center top , $bottom_color,$top_color);
   background-image: -webkit-linear-gradient(center top , $bottom_color,$top_color);
   background-image: -ms-linear-gradient(center top , $bottom_color,$top_color);
-
   background-image: -webkit-gradient(center top , $bottom_color,$top_color);
 }
+
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
   box-sizing: border-box;
 }
-@mixin background_image {
-  background-image: linear-gradient( bottom, rgb(186,188,196) 0%, rgb(240,250,242) 100%);
-  background-image: -o-linear-gradient( bottom, rgb(186,188,196) 0%, rgb(240,250,242) 100%);
-  background-image: -moz-linear-gradient( bottom, rgb(186,188,196) 0%, rgb(240,250,242) 100%);
-  background-image: -webkit-linear-gradient( bottom, rgb(186,188,196) 0%, rgb(240,250,242) 100%);
-  background-image: -ms-linear-gradient( bottom, rgb(186,188,196) 0%, rgb(240,250,242) 100%);
 
-  background-image: -webkit-gradient( linear, bottom, left top, color-stop(0, rgb(186,188,196)), color-stop(1, rgb(240,250,242))
-);}
-
-html{
-    min-height: 100%;
+@mixin background_image($bottom_color,$top_color) {
+  background-image: linear-gradient( bottom, $bottom_color, $top_color);
+  background-image: -o-linear-gradient( bottom, $bottom_color, $top_color);
+  background-image: -moz-linear-gradient( bottom, $bottom_color, $top_color);
+  background-image: -webkit-linear-gradient( bottom, $bottom_color, $top_color);
+  background-image: -ms-linear-gradient( bottom, $bottom_color, $top_color);
+  background-image: -webkit-gradient( linear, bottom, left top, color-stop(0, $bottom_color), color-stop(1, $top_color));
 }
+
+html {min-height: 100%;}
 
 body {
-  @include background-image;
+  @include background-image($bottom_color: #BABCC4 ,$top_color: #F0FAF2);
   background-size: cover;
-  }
-.field_with_errors {
-  @extend .control-group;
-  @extend .error;
-}
-
-#error_explanation {
-  color: #f00;
-  ul {
-    list-style: none;
-    margin: 0 0 18px 0;
-  }
-}
-
-.opacity{
+  .container {
     background-color:#ffffff;
     min-height: 400px;
-    opacity:0.8;
-    color: black;
-}
-
-
-.navbar-inner{
-    @include box_shading($bottom_color: #5C5CFF, $top_color: #3333FF)
- 
+  }
 }
 
 header {
-    .topline{  
-        color: #000000;
-        font-size: 18px;
-        float: right;
-        font-weight: bold;
-        margin-left: 20px;
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
-        transition: all 0.2s linear 0s;
-        line-height:  1;
-        display: block;
-        padding: 20px 0 0;
-    }
-
-    h1 {
-        line-height: 100px;
-        border-radius: 6px 6px 0 0;
-        text-align: center;color:black;
-    }
-
-    .navigation-bar{
-        .navbar-inner{
-            border-radius: 0 0 4px 4px;
-        }
-    }
-
-    .navbar .nav .active > a, .navbar .nav .active > a:hover {
-        background-color: #D8F3D8;
-        color: #B8E6B8;
-        text-decoration: none;
-    }
-    .navbar {
-        .divider-vertical {
-            background-color: #D8F3D8;
-            border-right: 2px solid #D8F3D8;
-        }
-        .nav > li > a{
-            color: #3C963C;
-        }
-    }
+  .navbar-inner{ background-color: #666666;}
+  .topline{  
+    color:white;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
+    transition: all 0.2s linear 0s;
+    display: block;
+    list-style: none outside none;
+    position: relative;
+    top: 8px;
+    a {color: white;}
+    .caret {border-top: 4px solid white;}
+    ul > li >a {color:black;}
+  }
+  form {margin:0;}
+  label {display:inline;}
+  input, textarea {width:150px;}
+  input[type="text"], input[type="password"] {padding:2px;}
+  .navbar .btn {margin: 0 5px 8px;}
 }
 
 
-.hero-unit {
-    background: inherit;
+.navbar {
+  margin-bottom: 0;
+  .divider-vertical {
+    background-color: #D8F3D8;
+    border-right: 2px solid #D8F3D8;
+  }
+  .nav > li > a{color: $navbar-font-color;}
+  .nav > li > a:hover {
+    background-color: lighten($navbar-background-color, 10%);
+    color: darken($navbar-font-color,20%);
+  }
 }
 
-.main-info {
-    min-height: 200px;
+.title-box {
+  h1 {
+    @include background_image($bottom_color: #F0FAF2, $top_color: #BABCC4) ;
+    line-height: 200px;
+    text-align: center;
+    color:black;
+  }
 }
 
-/*FOOTER*/ 
+.main-info {min-height: 200px;}
+
+.hero-unit {background-color: white;}
+
 .footer{
-    .navbar{
-        width:940px;
-   }
-    .nav {
-        float:right;
-    }
-    .navbar .nav > li > a {
-        color:black
-    }
-    .bottomline > a{
-        position: relative;
-        right: 400px;
-        display: block;
-    }
+  .bottomline{
+    position: relative;
+    top: 8px;
+    color: white;
+  }
+  .navbar .nav > li > a {
+    color:$navbar-font-color;
+    padding: 0;
+    margin-left: 30px;
+  }
+  .nav > li > a:hover {
+    background-color: inherit;
+    color: darken($navbar-font-color,20%);
+  }
 }
 
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
 /* sidebar */
 
 aside {
@@ -152,61 +135,41 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-/*SIGNUP PAGE*/
 .signup{
-    h1, h5{text-align:center}
-
-  .row{margin-top: 10px;}
-
-    input, textarea, select, .uneditable-input {
-      border: 1px solid #bbb;
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      @include box_sizing;
-      padding:1px;
-      color:black;
-    }
-
-    input {
-      height: 22px !important;
-    }
-
+  h1, h5{text-align:center}
+ .row{margin-top: 10px;}
+  input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  @include box_sizing;
+  padding:1px;
+  color:black;
+  }
+  input {height: 22px !important;}
   #first-name{
     clear: both;
     width: 40%;
     float: left;
     margin-right:5%
   }
-
   #middle-initial{
     width: 10%;
     float: left;
     margin-right: 5%;
     height: 22px !important;
-
-
   }
    #last-name{
     width:40%;
     float:left;
-}
-.email{
-    clear:both;
-}
-
+  }
   #city{
     clear: both;
     width: 40%;
     float: left;
     margin-right: 5%;
   }
-
   #country-choice{
     float: left;
     width: 20%;
@@ -216,52 +179,45 @@ aside {
       height: auto !important;
     }
   }
-
-    #state-choice{
-      padding-right: 0;
-      width: 25%;
-      float: left;
-      margin-right: 5%;
-      height: 22px !important;
-      #state{
-        font-size: 13px;
-        height: 22px;
-        line-height: 22px;
-        border-radius: 3px 3px 3px 3px;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-        transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-      }
+  #state-choice{
+    padding-right: 0;
+    width: 25%;
+    float: left;
+    margin-right: 5%;
+    height: 22px !important;
+    #state{
+      font-size: 13px;
+      height: 22px;
+      line-height: 22px;
+      border-radius: 3px 3px 3px 3px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+      transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
     }
-
-    #zip{
-      float: left;
-      width: 25%;
-    }
-
-    #email{
-      clear:both;
-      float: left;
-      width: 45%;
-      margin-right: 5%;
-    }
-
-    #email-confirmation{
-      float: right;
-      width: 45%;
-    }
-
-    #password{
-      clear:both;
-      float: left;
-      width: 45%;
-      margin-right: 5%;
-    }
-
-    #password-confirmation{
-      float: right;
-      width: 45%;
-    }
-
+  }
+  #zip{
+    float: left;
+    width: 25%;
+  }
+  #email{
+    clear:both;
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+  }
+  #email-confirmation{
+    float: right;
+    width: 45%;
+  }
+  #password{
+    clear:both;
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+  }
+  #password-confirmation{
+    float: right;
+    width: 45%;
+  }
   #error_explanation {
     padding: 2px;
     color: red;
@@ -273,18 +229,13 @@ aside {
       margin: 0 0 18px 0;
     }
   }
-
   .field_with_errors {
     @extend .control-group;
     @extend .error;
-   }
-
+  }
   .control-group.error .checkbox, .signup .field_with_errors .checkbox, .control-group.error .radio, .signup .field_with_errors .radio, .control-group.error input, .signup .field_with_errors input, .control-group.error select, .signup .field_with_errors select, .control-group.error textarea, .signup .field_with_errors textarea{ color:black}
-
   .control-group, .signup .field_with_errors{ margin-bottom:0;}
 }
-
-/* miscellaneous */
 
 .debug_dump {
   clear: both;
