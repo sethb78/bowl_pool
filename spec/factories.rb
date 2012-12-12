@@ -8,10 +8,25 @@ FactoryGirl.define do
 		twitter					"sethbaltshuler"
 		address1				"37 Appletree Dr."
 		city					"Matawan"
-		state 					"NJ"
+		state 					"New Jersey"
 		zip 					"07747"
 		password				"foobar"
 		password_confirmation	"foobar"
 	end
+
+	factory :wronguser, class: User do
+		first_name 				"Al"
+		middle_initial			"B"
+		last_name 				"Bundy"
+		email					"abc@gmail.com"
+		email_confirmation		"abc@gmail.com"
+		twitter					"sethbaltshuler"
+		address1				"37 Appletree Dr."
+		city					"Matawan"
+		state 					"New Jersey"
+		zip 					"07747"
+		password				"foobar"
+		password_confirmation	"foobar"
+	end 
 end
 

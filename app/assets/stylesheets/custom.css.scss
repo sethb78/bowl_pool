@@ -28,6 +28,17 @@ $navbar-font-color: white;
   background-image: -webkit-gradient( linear, bottom, left top, color-stop(0, $bottom_color), color-stop(1, $top_color));
 }
 
+.error_explanation {
+  padding: 2px;
+  color: red;
+  border: 1px solid black;
+  background-color: #FFFFCC;
+  margin-bottom: 5px;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
 html {min-height: 100%;}
 
 body {
@@ -77,9 +88,9 @@ header {
 }
 
 .title-box {
-  h1 {
-    @include background_image($bottom_color: #F0FAF2, $top_color: #BABCC4) ;
-    line-height: 200px;
+  @include background_image($bottom_color: #F0FAF2, $top_color: #BABCC4) ;
+  padding: 60px 0;
+  h1, h4 {  
     text-align: center;
     color:black;
   }
@@ -136,7 +147,8 @@ aside {
 }
 
 .signup{
-  h1, h5{text-align:center}
+  h1, h5{
+  text-align:center}
  .row{margin-top: 10px;}
   input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -148,44 +160,44 @@ aside {
   color:black;
   }
   input {height: 22px !important;}
-  #first-name{
+  .first-name{
     clear: both;
     width: 40%;
     float: left;
     margin-right:5%
   }
-  #middle-initial{
+  .middle-initial{
     width: 10%;
     float: left;
     margin-right: 5%;
     height: 22px !important;
   }
-   #last-name{
+   .last-name{
     width:40%;
     float:left;
   }
-  #city{
+  .city{
     clear: both;
     width: 40%;
     float: left;
     margin-right: 5%;
   }
-  #country-choice{
+  .country-choice{
     float: left;
     width: 20%;
     margin-right: 5%;
     height: auto !important;
-    #country{
+    .country{
       height: auto !important;
     }
   }
-  #state-choice{
+  .state-choice{
     padding-right: 0;
     width: 25%;
     float: left;
     margin-right: 5%;
     height: 22px !important;
-    #state{
+    .state{
       font-size: 13px;
       height: 22px;
       line-height: 22px;
@@ -194,47 +206,75 @@ aside {
       transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
     }
   }
-  #zip{
+  .zip{
     float: left;
     width: 25%;
   }
-  #email{
+  .email{
     clear:both;
     float: left;
     width: 45%;
     margin-right: 5%;
   }
-  #email-confirmation{
+  .email-confirmation{
     float: right;
     width: 45%;
   }
-  #password{
+  .password{
     clear:both;
     float: left;
     width: 45%;
     margin-right: 5%;
   }
-  #password-confirmation{
+  .password-confirmation{
     float: right;
     width: 45%;
   }
-  #error_explanation {
-    padding: 2px;
-    color: red;
-    border: 1px solid black;
-    background-color: #FFFFCC;
-    margin-bottom: 5px;
-    ul {
-      list-style: none;
-      margin: 0 0 18px 0;
-    }
-  }
+  
   .field_with_errors {
     @extend .control-group;
     @extend .error;
   }
   .control-group.error .checkbox, .signup .field_with_errors .checkbox, .control-group.error .radio, .signup .field_with_errors .radio, .control-group.error input, .signup .field_with_errors input, .control-group.error select, .signup .field_with_errors select, .control-group.error textarea, .signup .field_with_errors textarea{ color:black}
   .control-group, .signup .field_with_errors{ margin-bottom:0;}
+  select, input[type="file"] {
+    height: 22px;
+    line-height: 22px;
+    border-radius: 3px 3px 3px 3px;
+  } 
+}
+
+.edit-profile{
+  @extend .signup;
+  h1{margin: 80px 0 25px;}
+  .title-line{
+    display: inline;
+    width: 50%;
+  }
+  .gravatar {
+    left: 250px;
+    position: relative;
+    top: 30px;
+  }
+  a {
+    position: relative;
+    left: 170px;
+    top: 130px;
+  }
+  button.btn, input.btn[type="submit"] {
+    color: white;
+    margin: 0 30%;
+    width: 30%;
+    border: 1px solid black;  
+  }
+ }
+
+
+.signin-page {
+  .btn {
+    display: block;
+    clear: both;
+  }
 }
 
 .debug_dump {

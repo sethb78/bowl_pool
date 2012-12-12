@@ -1,9 +1,10 @@
 <% provide(:title, "Sign In") %>
 <h1>Sign In</h1>
-
-<div class="row">
-	<div class="span6 offset3">
-		<%= render 'sessions/signinform' %>
-		<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+<div class="signin-page">
+	<div class="row">
+		<div class="span6 offset3">
+			<%= render 'sessions/signinform' %>
+			<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+		</div>
 	</div>
 </div>

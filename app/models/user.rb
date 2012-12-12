@@ -19,10 +19,11 @@
 class User < ActiveRecord::Base
 
 	before_save { |user| user.email = email.downcase }
+  before_save(:create_remember_token)
+
   attr_accessible :address1, :address2, :city, :email, :first_name, :last_name, :state, :twitter, :zip, :password, :password_confirmation, :middle_initial, :country, :email_confirmation
 
  	has_secure_password
-  before_save(:create_remember_token)
 
  	validates :first_name, presence: true, length: { maximum: 25 }
   validates :last_name, presence: true, length: { maximum: 25 }

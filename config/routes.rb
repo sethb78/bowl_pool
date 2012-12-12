@@ -5,8 +5,15 @@ BowlPool::Application.routes.draw do
   
     root to: 'static_pages#home'
 
-    match '/rules',         to: 'static_pages#rules'
-    match '/contact',       to: 'static_pages#contact'
+    match '/football',        to: 'static_pages#football'
+    match '/baseball',        to: 'static_pages#baseball'  
+    match '/basketball',      to: 'static_pages#basketball'
+    match '/hockey',          to: 'static_pages#hockey'
+    match '/realitytv',       to: 'static_pages#realitytv'
+    match '/awardshows',      to: 'static_pages#awardshows'
+    match '/trainwrecks',     to: 'static_pages#trainwrecks'
+
+
    
     match '/signup',  to: 'users#new'
     match '/signin',  to: 'sessions#new'
