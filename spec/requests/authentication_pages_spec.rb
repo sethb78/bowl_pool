@@ -82,6 +82,22 @@ let(:user) { FactoryGirl.create(:user) }
             				page.should have_selector('title', text: 'Edit User')
           				end
         			end
+
+      			end
+			end
+			      		describe "when attempting to visit a protected page" do
+        		before { visit edit_user_path(user) }
+
+        		describe " then signing in" do
+        			 before { sign_in(user) }
+                	
+                	describe "after signing in" do
+
+                		it "should render the desired protected page" do
+            				page.should have_selector('title', text: 'Edit User')
+          				end
+        			end
+
       			end
 			end
 		end

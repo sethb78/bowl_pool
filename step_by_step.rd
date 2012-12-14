@@ -120,19 +120,22 @@ VII.  Sign In/Sign Out
 ***Updated site and routes to have links for sports and reality***
 
 VIII.  Updating Users
-		A.  tested edit user page, edit_user_path(user) for correct h1, title, gravatar change link
-			1.  created edit action in Uses controller
-			2.  created users/edit view with correct form
-		B.  Authorization
-			1.  tested non-signed in users are are not brought to edit user page and putting a direct update request(Put action) redirects user to signin path
-				a.  added before_filter for edit and update actions in Users controller to access signed_in_user function
-				b.  added signed_in_user to sessions helper
-				c.  updated user_pages_spec to sign_in user during edit user tests
-					i.  added sign_in helper method to spec/support/utilities
-			2.  tested that users can only edit their own information
-				a.  added before_filter for edit and upddate actions in Users controller to access correct_user function
-				b.  added correct_user to sessions helper
-			3.  tested that when a non signed-in user signs in they are brought to the page they were on
-				a.  added redirect_back_or and store_location functions to sessions helper
-					i.  added store_location to signed_in_user function
-					ii.  added redirect_back_or to sessions Create action
+	A.  tested edit user page, edit_user_path(user) for correct h1, title, gravatar change link
+		1.  created edit action in Uses controller
+		2.  created users/edit view with correct form
+	B.  Authorization
+		1.  tested non-signed in users are are not brought to edit user page and putting a direct update request(Put action) redirects user to signin path
+			a.  added before_filter for edit and update actions in Users controller to access signed_in_user function
+			b.  added signed_in_user to sessions helper
+			c.  updated user_pages_spec to sign_in user during edit user tests
+				i.  added sign_in helper method to spec/support/utilities
+		2.  tested that users can only edit their own information
+			a.  added before_filter for edit and upddate actions in Users controller to access correct_user function
+			b.  added correct_user to sessions helper
+		3.  tested that when a non signed-in user signs in they are brought to the page they were on
+			a.  added redirect_back_or and store_location functions to sessions helper
+				i.  added store_location to signed_in_user function
+				ii.  added redirect_back_or to sessions Create action
+
+Ix.  Admin User
+	A.  tested for admin attribute

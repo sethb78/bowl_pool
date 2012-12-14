@@ -55,7 +55,7 @@ let(:user) { FactoryGirl.create(:user) }
 
 					describe "Then Signing Out" do
 						before { click_link("Sign Out") }
-	    				it { should have_button('Sign in') }
+	    				it { should have_button('Sign In') }
       				end
 				end
 	   		end
