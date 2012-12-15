@@ -137,5 +137,12 @@ VIII.  Updating Users
 				i.  added store_location to signed_in_user function
 				ii.  added redirect_back_or to sessions Create action
 
-Ix.  Admin User
+IX.  Admin User
 	A.  tested for admin attribute
+		a.  added admin column to Users table
+
+X.  Deleting Users
+	A.  tested that users cannot delete users from command line
+		1.  added before_filter for Destroy action in Users controller to access admin_user function
+			i.  added admin_user to sessions helper
+

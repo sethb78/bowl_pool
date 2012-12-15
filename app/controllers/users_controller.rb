@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_filter :signed_in_user, only: [:edit, :update]
     before_filter :correct_user,   only: [:edit, :update]
+    before_filter :admin_user,     only: :destroy
 
     
   	def new
@@ -33,6 +34,17 @@ class UsersController < ApplicationController
       redirect_to @user    
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    user=User.find(params[:id])
+    if user.admin?
+      redirect_to root_path
+    else
+      user.destroy
+      flash[:success] = "User destroyed."
+      redirect_to users_url
     end
   end
 
