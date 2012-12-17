@@ -31,5 +31,13 @@ FactoryGirl.define do
 		password				"foobar"
 		password_confirmation	"foobar"
 	end 
+
+	factory :playoffpoolgame do
+		week					"1"
+		date					"2nd Jan 2013 13:05:00"
+		home					"NY Jets"
+		away					"NY Giants"
+		spread					3.5
+	end
 end
 

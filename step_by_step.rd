@@ -145,4 +145,6 @@ X.  Deleting Users
 	A.  tested that users cannot delete users from command line
 		1.  added before_filter for Destroy action in Users controller to access admin_user function
 			i.  added admin_user to sessions helper
+	B.  tested that admin cannot be deleted
+		i.  added an if/else to destroy action in Users controller
 

@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121214221739) do
+ActiveRecord::Schema.define(:version => 20121215032854) do
+
+  create_table "playoff_pool_games", :force => true do |t|
+    t.string   "week"
+    t.datetime "date"
+    t.string   "home"
+    t.string   "away"
+    t.float    "spread"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "playoff_pool_games", ["week", "date"], :name => "index_playoff_pool_games_on_week_and_date"
 
   create_table "users", :force => true do |t|
     t.string   "email"

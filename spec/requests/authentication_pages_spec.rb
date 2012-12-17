@@ -118,7 +118,7 @@ let(:user) { FactoryGirl.create(:user) }
 	    		let(:admin) { FactoryGirl.create(:admin) }
 	    		before do
 	    			sign_in(admin)
-	    			 delete user_path(admin) 
+	    			delete user_path(admin) 
 	    		end
 	    		specify { response.should redirect_to(root_path) }
 	    	end
